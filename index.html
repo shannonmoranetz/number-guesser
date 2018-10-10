@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+</head>
+
+<body>
+  <article class="game-container">
+
+    <div class="game-input-container">
+      <section class="game-input">
+
+        <h1 class="game-header-thick thick-skinny-inline">
+          NUMBER
+        </h1>
+        <h1 class="game-header-skinny thick-skinny-inline">
+          GUESSER
+        </h1>
+        <div class="range-titles">
+          <span class="min-title"><strong>Min Range</strong></span>
+          <span class="max-title"><strong>Max Range</strong></span>
+          <span class="hidden-title">Hidden</span>
+        </div>
+        <div class="range-modifiers">
+          <input type="text" id="min-range" value="1">
+          <input type="text" id="max-range" value="100">
+          <button id="update-button">update range</button>
+        </div>
+
+        <div class="error-messages">
+
+          <div class="error-min">
+            <img src="images/error-icon.svg">
+            <span>Enter a min range</span>
+          </div>
+
+          <div class="error-max">
+            <img src="images/error-icon.svg">
+            <span>Enter a max range</span>
+          </div>
+
+          <div class="error-min"></div>
+        </div>
+        <p class="current-range">The Current Range is <span class="current-min-range">1</span> to <span class="current-max-range">100</span>.</p>
+        <span class="guess-title"><strong>Guess</strong></span>
+        <div class="guess-form">
+          <input type="text" class="user-guess">
+          <button id="guess-button">SUBMIT GUESS</button>
+          <button id="clear-button" class="hide">CLEAR</button>
+          <button id="reset-button" class="hide">RESET</button>
+        </div>
+      </section>
+    </div> 
+
+
+    <div class="game-output-container">
+      <section class="game-output">
+        <h2 class="output-header">
+          You Guessed:
+        </h2>
+        <p class="guess-number">25</p>
+        <p class="output-message">
+          Base Message
+        </p>        
+      </section>
+    </div>
+  </article>
+
+
+<script src="scripts.js"> </script>
+</body>
+</html>
