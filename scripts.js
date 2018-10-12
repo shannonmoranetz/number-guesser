@@ -32,21 +32,36 @@ function checkRangeNumbers()
       var errorMax = document.querySelector('.error-max');
       errorMax.classList.remove('hide-error');
     }
-    
   }
   else if (isNaN(maxRange) || maxRange === "")
   { 
     var errorMax = document.querySelector('.error-max');
     errorMax.classList.remove('hide-error');
   }
-  else if (minRange > maxRange)
+  else if (minRange >= maxRange)
   {
-    outputMessage.innerHTML = "Your minimum number is greater than your maximum number!";
+    outputMessage.innerHTML = "Your minimum number is greater than or equal to than your maximum number!";
+  }
+  else if (minRange < maxRange)
+  {
+    return;
   }
   else 
   { 
     outputMessage.innerHTML = "UNEXPECTED ERROR";
   }
+}
+
+function winDifficultyIncrease() 
+{
+  minRange = document.querySelector('.min-range').value;
+  maxRange = document.querySelector('.max-range').value;
+  var newMinRange = minRange - 10; 
+  var newMaxRange = parseInt(maxRange) + 10; 
+  document.querySelector('.current-min-range').innerHTML = newMinRange;
+  document.querySelector('.current-max-range').innerHTML = newMaxRange;
+  document.querySelector('.min-range').value = newMinRange;
+  document.querySelector('.max-range').value = newMaxRange;
 }
 
 //update ranges
@@ -121,6 +136,7 @@ function gameLoop()
   {
     document.querySelector(".guess-number").innerHTML = `${playersGuess}`;
     outputMessage.innerHTML = "BOOM!";
+    winDifficultyIncrease();
     gameWinBtnState()
   }
   else 
