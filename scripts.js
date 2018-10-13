@@ -1,22 +1,35 @@
-// input & output
-var userGuess = document.querySelector('.user-guess');
+var clearButton = document.querySelector('.clear-button');
+var guessButton = document.querySelector('.guess-button');
+var maxRange = document.querySelector('.max-range').value;
+var minRange = document.querySelector('.min-range').value;
 var outputMessage = document.querySelector('.output-message');
+var resetButton = document.querySelector('.reset-button');
+var updateButton = document.querySelector('.update-button');
+var userGuess = document.querySelector('.user-guess');
 
-// Initial random Number
 initializeGame();
 generateRandomNumber();
 
-var minRange = document.querySelector('.min-range').value;
-var maxRange = document.querySelector('.max-range').value;
-
-function initializeGame() 
-{
+clearButton.addEventListener('click', function() {
   document.querySelector('.user-guess').value = "";
-  document.querySelector('.min-range').value = 1;
-  document.querySelector('.max-range').value = 100;
-  document.querySelector('.current-min-range').innerHTML = '1';
-  document.querySelector('.current-max-range').innerHTML = '100';
-}
+  document.querySelector('.clear-button').disabled = true;
+  clearButton.classList.add('hide');
+});
+
+guessButton.addEventListener('click', gameLoop);
+
+resetButton.addEventListener('click', function() {
+  initializeGame();
+  gameResetBtnState();
+  generateRandomNumber();
+});
+
+updateButton.addEventListener('click', function() {
+  checkRangeNumbers();
+  generateRandomNumber();
+  document.querySelector('.current-min-range').innerHTML = `${minRange}`;
+  document.querySelector('.current-max-range').innerHTML = `${maxRange}`;
+});
 
 function checkRangeNumbers() 
 {
@@ -50,52 +63,6 @@ function checkRangeNumbers()
   { 
     outputMessage.innerHTML = "UNEXPECTED ERROR";
   }
-}
-
-function winDifficultyIncrease() 
-{
-  minRange = document.querySelector('.min-range').value;
-  maxRange = document.querySelector('.max-range').value;
-  var newMinRange = minRange - 10; 
-  var newMaxRange = parseInt(maxRange) + 10; 
-  document.querySelector('.current-min-range').innerHTML = newMinRange;
-  document.querySelector('.current-max-range').innerHTML = newMaxRange;
-  document.querySelector('.min-range').value = newMinRange;
-  document.querySelector('.max-range').value = newMaxRange;
-}
-
-//update ranges
-var updateButton = document.querySelector('.update-button');
-updateButton.addEventListener('click', function() {
-  checkRangeNumbers();
-  generateRandomNumber();
-  document.querySelector('.current-min-range').innerHTML = `${minRange}`;
-  document.querySelector('.current-max-range').innerHTML = `${maxRange}`;
-});
-
-// the guess button
-var guessButton = document.querySelector('.guess-button');
-guessButton.addEventListener('click', gameLoop);
-
-function generateRandomNumber() 
-{
-  minRange = document.querySelector('.min-range').value;
-  maxRange = document.querySelector('.max-range').value;
-  var minN =parseInt(minRange);
-  var maxN =parseInt(maxRange);
-  randomNumber = Math.floor(Math.random() * (maxN - minN+1)) + minN;
-}
-
-function gameStartBtnState() 
-{
-  document.querySelector('.min-range').disabled = true;
-  document.querySelector('.max-range').disabled = true;
-  document.querySelector('.clear-button').disabled = false;
-  clearButton.classList.remove('hide');
-  document.querySelector('.reset-button').disabled = false;
-  resetButton.classList.remove('hide');
-  document.querySelector('.update-button').disabled = true;
-  updateButton.classList.add('hide');
 }
 
 function gameLoop() 
@@ -145,14 +112,6 @@ function gameLoop()
   }
 }
 
-function gameWinBtnState() 
-{
-  document.querySelector('.update-button').disabled = false;
-  updateButton.classList.remove('hide');
-  document.querySelector('.min-range').disabled = false;
-  document.querySelector('.max-range').disabled = false;
-}
-
 function gameResetBtnState() {
   document.querySelector('.reset-button').disabled = true;
   resetButton.classList.add('hide');
@@ -164,19 +123,53 @@ function gameResetBtnState() {
   document.querySelector('.max-range').disabled = false;
 }
 
-// clear
-var clearButton = document.querySelector('.clear-button');
-clearButton.addEventListener('click', function() {
+function gameStartBtnState() 
+{
+  document.querySelector('.min-range').disabled = true;
+  document.querySelector('.max-range').di sabled = true;
+  document.querySelector('.clear-button').disabled = false;
+  clearButton.classList.remove('hide');
+  document.querySelector('.reset-button').disabled = false;
+  resetButton.classList.remove('hide');
+  document.querySelector('.update-button').disabled = true;
+  updateButton.classList.add('hide');
+}
+
+function gameWinBtnState() 
+{
+  document.querySelector('.update-button').disabled = false;
+  updateButton.classList.remove('hide');
+  document.querySelector('.min-range').disabled = false;
+  document.querySelector('.max-range').disabled = false;
+}
+
+function generateRandomNumber() 
+{
+  minRange = document.querySelector('.min-range').value;
+  maxRange = document.querySelector('.max-range').value;
+  var minN =parseInt(minRange);
+  var maxN =parseInt(maxRange);
+  randomNumber = Math.floor(Math.random() * (maxN - minN+1)) + minN;
+}
+
+function initializeGame() 
+{
   document.querySelector('.user-guess').value = "";
-  document.querySelector('.clear-button').disabled = true;
-  clearButton.classList.add('hide');
-});
+  document.querySelector('.min-range').value = 1;
+  document.querySelector('.max-range').value = 100;
+  document.querySelector('.current-min-range').innerHTML = '1';
+  document.querySelector('.current-max-range').innerHTML = '100';
+}
 
+function winDifficultyIncrease() 
+{
+  minRange = document.querySelector('.min-range').value;
+  maxRange = document.querySelector('.max-range').value;
+  var newMinRange = minRange - 10; 
+  var newMaxRange = parseInt(maxRange) + 10; 
+  document.querySelector('.current-min-range').innerHTML = newMinRange;
+  document.querySelector('.current-max-range').innerHTML = newMaxRange;
+  document.querySelector('.min-range').value = newMinRange;
+  document.querySelector('.max-range').value = newMaxRange;
+}
 
-// function to reset the game
-var resetButton = document.querySelector('.reset-button');
-resetButton.addEventListener('click', function() {
-  initializeGame();
-  gameResetBtnState();
-  generateRandomNumber();
-});

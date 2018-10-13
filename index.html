@@ -9,8 +9,179 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 </head>
 <body>
-  <article class="game-container">
-    <div class="game-input-container">
+
+  <article class="number-guesser-container">
+
+    <header class="game-title-container"></header>
+
+    <div class="game-container">
+
+      <div class="game-input-container">
+
+        <section class="range-modifiers-container">
+
+          <div class="min-range-container">
+            <h5 class="input-title-header">
+              Set Range
+            </h5>
+            <span class=input-box-header>
+              Min Range
+            </span>
+            <input type="text" class="min-range">
+            <span class="error-min hide-error">
+              <img class="error-image" src="images/error-icon.svg">
+              <span class="error-message">Enter a min range</span>
+            </span>
+          </div>
+
+          <div class="max-range-container">
+           <h5 class="input-title-header" id="dummy">
+             DUMMY
+           </h5>
+           <span class=input-box-header>
+            Min Range
+          </span>
+          <input type="text" class="min-range">
+          <span class="error-max hide-error">
+            <img class="error-image" src="images/error-icon.svg">
+            <span class="error-message">Enter a max range</span>
+          </span>
+        </div>
+        <div class="update-button-container">
+          <h5 class="input-title-header" id="dummy">
+           DUMMY
+         </h5>
+         <span class=input-box-header id="dummy">
+          DUMMY
+        </span>
+        <button class="update-button">UPDATE</button>
+        <span class="error-max hide-error" id="dummy">
+            <img class="error-image" src="images/error-icon.svg">
+            <span class="error-message">DUMMY</span>
+          </span>
+      </div>
+    </section>
+
+    <section class="player-guesses-container">
+
+      <div class="current-range-container">
+        <span class="current-range">
+          The Current Range is 
+          <span class="current-min-range">1</span>
+          to 
+          <span class="current-max-range">100</span>
+          .
+        </span>
+      </div>
+
+      <div class="name-one-container">
+        <h5 class="input-title-header">
+          Challenger 1
+        </h5>
+        <span class=input-box-header>
+          Name
+        </span>
+        <!-- NEW CLASS NAME -->
+        <input type="text" class="player-one-name">
+        <span class="error-name-one hide-error">
+          <img class="error-image" src="images/error-icon.svg">
+          <span class="error-message">Enter a name</span>
+        </span>
+      </div>
+      <div class="player-one-guess-container">
+        <h5 class="input-title-header" id="dummy">
+          DUMMY
+        </h5>
+        <span class=input-box-header>
+          Guess
+        </span>
+        <!-- NEW CLASS NAME -->
+        <input type="text" class="player-one-guess">
+        <span class="error-name-one hide-error" id="dummy">
+          <img class="error-image" src="images/error-icon.svg">
+          <span class="error-message">DUMMY</span>
+        </span>
+      </div>
+
+      <div class="name-two-container">
+        <h5 class="input-title-header">
+          Challenger 2
+        </h5>
+        <span class=input-box-header>
+          Name
+        </span>
+        <!-- NEW CLASS NAME -->
+        <input type="text" class="player-two-name">
+        <span class="error-name-two hide-error">
+          <img class="error-image" src="images/error-icon.svg">
+          <span class="error-message">Enter a name</span>
+        </span>
+      </div>
+      <div class="player-two-guess-container">
+        <h5 class="input-title-header" id="dummy">
+          DUMMY
+        </h5>
+        <span class=input-box-header>
+          Guess
+        </span>
+        <!-- NEW CLASS NAME -->
+        <input type="text" class="player-two-guess">
+        <span class="error-name-one hide-error" id="dummy">
+          <img class="error-image" src="images/error-icon.svg">
+          <span class="error-message">DUMMY</span>
+        </span>
+      </div>
+
+      <div class="guess-button-container">
+        <button class="guess-button">SUBMIT GUESS</button> 
+      </div>
+      <div class="reset-button-container">
+       <button class="reset-button">RESET GAME</button>
+     </div> 
+     <div class="clear-button-container">
+       <button class="clear-button">CLEAR GAME</button>
+     </div>  
+   </section>
+
+   <section class="latest-score-container">
+    <div class="latest-player-one">
+      <h5 class="input-title-header">
+          Latest Score
+        </h5>
+        <h6 class="challenger-one-name">
+          Challenger 1 Name
+        </h6>
+        <span class="current-guess">current guess</span>
+        <span class="guess-player-one">97</span>
+        <span class="output-message-player-one">that's too high</span>
+    </div>
+    <div class="latest-player-two">
+      <h5 class="input-title-header" id="dummy">
+          DUMMY
+        </h5>
+        <h6 class="challenger-two-name">
+          Challenger 2 Name
+        </h6>
+        <span class="current-guess">current guess</span>
+        <span class="guess-player-two">3</span>
+        <span class="output-message-player-two">that's too low</span>
+    </div>
+  </section>
+
+</div>
+
+<div class="game-output-container">
+
+</div>
+
+</div>
+
+</article>
+<script src="scripts.js"></script>
+</body>
+</html>
+
+  <!-- <div class="game-input-container">
       <section class="game-input">
         <h1 class="game-header-thick thick-skinny-inline">
           NUMBER
@@ -61,8 +232,4 @@
           <p class="guess-number"></p>
           <p class="output-message"></p>        
         </section>
-      </div>
-    </article>
-    <script src="scripts.js"></script>
-  </body>
-  </html>
+      </div> -->
