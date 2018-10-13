@@ -1,7 +1,7 @@
 var clearButton = document.querySelector('.clear-button');
 var guessButton = document.querySelector('.guess-button');
-var maxRange = document.querySelector('.max-range').value;
-var minRange = document.querySelector('.min-range').value;
+var maxRange = document.querySelector('.max-range');
+var minRange = document.querySelector('.min-range');
 var outputMessage = document.querySelector('.output-message');
 var resetButton = document.querySelector('.reset-button');
 var updateButton = document.querySelector('.update-button');
@@ -11,7 +11,7 @@ initializeGame();
 generateRandomNumber();
 
 clearButton.addEventListener('click', function() {
-  document.querySelector('.user-guess').value = "";
+  document.querySelector('.user-guess').value = '';
   document.querySelector('.clear-button').disabled = true;
   clearButton.classList.add('hide');
 });
@@ -39,13 +39,12 @@ function checkRangeNumbers()
   {
     var errorMin = document.querySelector('.error-min');
     errorMin.classList.remove('hide-error');
-
+  }
     if (isNaN(maxRange) || maxRange === "")
     { 
       var errorMax = document.querySelector('.error-max');
       errorMax.classList.remove('hide-error');
     }
-  }
   else if (isNaN(maxRange) || maxRange === "")
   { 
     var errorMax = document.querySelector('.error-max');
@@ -126,7 +125,7 @@ function gameResetBtnState() {
 function gameStartBtnState() 
 {
   document.querySelector('.min-range').disabled = true;
-  document.querySelector('.max-range').di sabled = true;
+  document.querySelector('.max-range').disabled = true;
   document.querySelector('.clear-button').disabled = false;
   clearButton.classList.remove('hide');
   document.querySelector('.reset-button').disabled = false;
@@ -154,7 +153,7 @@ function generateRandomNumber()
 
 function initializeGame() 
 {
-  document.querySelector('.user-guess').value = "";
+  document.querySelector('.user-guess').value = '';
   document.querySelector('.min-range').value = 1;
   document.querySelector('.max-range').value = 100;
   document.querySelector('.current-min-range').innerHTML = '1';
