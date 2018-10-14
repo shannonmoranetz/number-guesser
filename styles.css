@@ -89,9 +89,9 @@ body {
   width: 30%;
   color: #DD1972;*/
 }
-/*.hide-error {
+.hide-error {
   visibility: hidden;
-}*/
+}
 
 .max-range-container {
   padding:10px;
@@ -338,11 +338,11 @@ body {
 .guess-title {
   margin-bottom: 15px;
   font-weight: 700;
-}
+}*/
 
 .hide {
   background-color: #D0D2D3;
-}*/
+}
 /*output side*/
 /*.output-header {
   color: #FFFFFF;
