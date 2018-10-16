@@ -308,11 +308,11 @@ function gameWon(winner, totalGuesses)
   // createStatsDiv();
 }
 // MAIN
+
 function createDiv(winner, totalGuesses) {
     var newDiv = document.createElement('div');
     
 
-    
 
     newDiv.className = 'score-card';
     newDiv.innerHTML = `
@@ -328,13 +328,65 @@ function createDiv(winner, totalGuesses) {
     <div class="score-card-stats">
       <div class="score-card-guesses">${totalGuesses}</div>
       <div class="score-card-timer">MINUTES</div>
-      <button class="delete-card"></button>
+      <button class="delete-card">Delete</button>
     </div>
     `
+    // var deleteBtn = document.querySelector('delete-card');
     scoreCardContainerDiv.appendChild(newDiv);
+    // var deleteButton = document.querySelector('.delete-card');
   }
 
+
+document.querySelector('.score-card-container').addEventListener('click', function(event) {
+    var del = document.querySelector('.score-card');
+    if (event.target.tagName.toLowerCase() === 'button') {
+        del.remove();
+    }
+});
+
+ // console.log(event.target);
+  // console.log(this);
+    //   var scoreCard = document.querySelector('.score-card-stats');
+    // var deleteButton = document.querySelector('.delete-card');
+    // deleteButton.scoreCard.removeChild(deleteButton);
+
+
+
+
+
+
+// deleteButton.addEventListener('click', function() {
+  // deleteButton();
+// });
+
+// function deleteButton() {
+//     var scoreCard = document.querySelector('.score-card');
+//     var deleteButton = document.querySelector('.delete-card');
+//     deleteButton.scoreCard.removeChild(scoreCard);
+//     };
+
 // gameWon();
+
+
+
+
+
+
+
+
+// 1. create a unique identifier (date method), and store in var 
+// 2. create event listener
+// 3. function to get id from target (button)
+
+
+// REAL INSTRUCTIONS
+// 1. event listener --> check if event target has delete-card
+// 2. if yes: delete grandparent 
+
+
+
+
+
 
 
 
