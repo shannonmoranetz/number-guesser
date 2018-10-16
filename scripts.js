@@ -101,24 +101,24 @@ function checkRangeNumbers()
 };
 
 
-var playerOneTurn = [];
-var playerTwoTurn = [];
-console.log(playerOneTurn);
+var playerOneGuesses = [1];
+var playerTwoGuesses = [1];
+
 
 
 
 function gameLoop() {
 
  gameStartBtnState();
- console.log('p1t', playerOneTurn);
- console.log('p2t', playerTwoTurn);
+ // console.log('p1t', playerOneTurn);
+ // console.log('p2t', playerTwoTurn);
 
 
 var playerOneGuessInt = parseInt(playerOneGuess.value);
 var playerTwoGuessInt = parseInt(playerTwoGuess.value);
 
-console.log('p1g', playerOneGuessInt);
-console.log('p2g', playerTwoGuessInt);
+
+
 
  if (playerOneGuessInt === '') 
  {
@@ -139,19 +139,27 @@ else if (parseInt(playerOneGuessInt) < parseInt(minRange))
 else if (parseInt(playerOneGuessInt) > randomNumber) 
 { 
   outputMessagePlayerOne.innerHTML = "Sorry, that is too high";
-  playerOneTurn.push(playerOneGuessInt);
+  playerOneGuesses.push(playerOneGuessInt);
   document.querySelector('.guess-player-one').innerHTML = `${playerOneGuessInt}`;
+ 
 }
 else if (parseInt(playerOneGuessInt) < randomNumber) 
 {  
   outputMessagePlayerOne.innerHTML = "Sorry, that is too low";
-  playerOneTurn.push(playerOneGuessInt);
+  playerOneGuesses.push(playerOneGuessInt);
   document.querySelector('.guess-player-one').innerHTML = `${playerOneGuessInt}`;
+ 
 }
 else if (parseInt(playerOneGuessInt) === randomNumber) 
 {
   outputMessagePlayerOne.innerHTML = "BOOM!";
   document.querySelector('.guess-player-one').innerHTML = `${playerOneGuessInt}`;
+  var winner = playerOneName;
+    console.log(playerOneGuesses);
+  console.log(playerOneGuesses.length);
+  var totalGuesses = playerOneGuesses.length;
+  console.log(totalGuesses);
+  gameWon(winner, totalGuesses);
     // winDifficultyIncrease();
     // gameWinBtnState()
   }
@@ -179,19 +187,25 @@ else if (parseInt(playerTwoGuessInt) < parseInt(minRange))
 else if (parseInt(playerTwoGuessInt) > randomNumber) 
 { 
   outputMessagePlayerTwo.innerHTML = "Sorry, that is too high";
-  playerTwoTurn.push(playerTwoGuessInt);
+  playerTwoGuesses.push(playerTwoGuessInt);
   document.querySelector('.guess-player-two').innerHTML = `${playerTwoGuessInt}`;
 }
 else if (parseInt(playerTwoGuessInt) < randomNumber) 
 {  
   outputMessagePlayerTwo.innerHTML = "Sorry, that is too low";
-  playerTwoTurn.push(playerTwoGuessInt);
+  playerTwoGuesses.push(playerTwoGuessInt);
   document.querySelector('.guess-player-two').innerHTML = `${playerTwoGuessInt}`;
 }
 else if (parseInt(playerTwoGuessInt) === randomNumber) 
 {
   outputMessagePlayerTwo.innerHTML = "BOOM!";
   document.querySelector('.guess-player-two').innerHTML = `${playerTwoGuessInt}`;
+  var winner = playerTwoName;
+  console.log(playerTwoGuesses);
+  console.log(playerTwoGuesses.length);
+  var totalGuesses = playerTwoGuesses.length;
+   console.log(totalGuesses);
+  gameWon(winner, totalGuesses);
     // winDifficultyIncrease();
     // gameWinBtnState()
   }
@@ -275,6 +289,125 @@ if ((playerOneName === '') || (playerTwoName === '')) {
 }
 
 }
+var scoreCardContainerDiv = document.querySelector('.score-card-container');
+
+function gameWon(winner, totalGuesses)
+{
+  createDiv(winner, totalGuesses);
+
+  // createVsDiv();
+  // createChOneVsDiv();
+  // createVsSeparatorDiv();
+  // createChTwoVsDiv();
+
+
+  // createWinnerDiv();
+  // createWinnerNameDiv();
+  // createStaticWinnerDiv();
+
+  // createStatsDiv();
+}
+// MAIN
+function createDiv(winner, totalGuesses) {
+    var newDiv = document.createElement('div');
+    
+
+    
+
+    newDiv.className = 'score-card';
+    newDiv.innerHTML = `
+    <div class="score-card-vs">
+      <div class="score-card-challenger">${playerOneName}</div>
+      <div class="score-card-static-vs">vs.</div>
+      <div class="score-card-challenger">${playerTwoName}</div>
+    </div>   
+    <div class="score-card-winner">
+      <div class="score-card-winner-name">${winner}</div>
+      <div class="score-card-static-winner">WINNER</div>
+    </div> 
+    <div class="score-card-stats">
+      <div class="score-card-guesses">${totalGuesses}</div>
+      <div class="score-card-timer">MINUTES</div>
+      <button class="delete-card"></button>
+    </div>
+    `
+    scoreCardContainerDiv.appendChild(newDiv);
+  }
+
+// gameWon();
+
+
+
+// TOP
+// var nextCard =1;
+// function createVsDiv() {
+//   nextCard = nextCard +1;;
+//     var scoreCardDiv = document.querySelector('.score-card');
+//     var newDiv = document.createElement('div');
+//     // newDiv.innerHTML = ``
+//     newDiv.className = `score-card-vs score-card-vs${nextCard}`;
+    
+//     scoreCardDiv.appendChild(newDiv);
+//     }
+
+// function createChOneVsDiv() {
+//     var scoreCardChOneDiv = document.querySelector('.score-card-vs');
+//     var newDiv = document.createElement('div');
+//     newDiv.className = 'score-card-challenger';
+//     newDiv.textContent = "Challenger 1";
+//     scoreCardChOneDiv.appendChild(newDiv);
+//     }
+
+// function createVsSeparatorDiv() {
+//     var scoreCardVsSeparatorDiv = document.querySelector('.score-card-vs');
+//     var newDiv = document.createElement('div');
+//     newDiv.className = 'score-card-static-vs';
+//     newDiv.textContent = "vs";
+//     scoreCardVsSeparatorDiv.appendChild(newDiv);
+//     }
+
+//     function createChTwoVsDiv() {
+//     var scoreCardChTwoDiv = document.querySelector('.score-card-vs');
+//     var newDiv = document.createElement('div');
+//     newDiv.className = 'score-card-challenger';
+//     newDiv.textContent = "Challenger 2";
+//     scoreCardChTwoDiv.appendChild(newDiv);
+//     }
+
+// // MIDDLE
+
+// function createWinnerDiv() {
+//   var scoreCardDiv = document.querySelector('.score-card');
+//     var newDiv = document.createElement('div');
+//     newDiv.className = 'score-card-winner';
+    
+//     scoreCardDiv.appendChild(newDiv);
+//     }
+
+// function createWinnerNameDiv() {
+//     var scoreCardWinnerDiv = document.querySelector('.score-card-winner');
+//     var newDiv = document.createElement('div');
+//     newDiv.className = 'score-card-winner-name';
+//     newDiv.textContent = "Challenger 1 Name";
+//     scoreCardWinnerDiv.appendChild(newDiv);
+//     }
+
+//     function createStaticWinnerDiv() {
+//     var scoreCardWinnerDiv = document.querySelector('.score-card-winner');
+//     var newDiv = document.createElement('div');
+//     newDiv.className = 'score-card-static-winner';
+//     newDiv.textContent = "WINNER";
+//     scoreCardWinnerDiv.appendChild(newDiv);
+//     }
+// // BOTTOM
+//     function createStatsDiv() {
+//       var scoreCardDiv = document.querySelector('.score-card');
+//     var newDiv = document.createElement('div');
+//     newDiv.className = 'score-card-stats';
+    
+//     scoreCardDiv.appendChild(newDiv);
+//     }
+
 
 // function winDifficultyIncrease() 
 // {
