@@ -57,6 +57,8 @@ updateButton.addEventListener('click', function() {
   }
 });
 
+aaaa
+
 function checkRangeNumbers() 
 {
   var errorMin = document.querySelector('.error-min');
@@ -308,6 +310,7 @@ function gameWon(winner, totalGuesses)
   // createStatsDiv();
 }
 // MAIN
+
 function createDiv(winner, totalGuesses) {
     var newDiv = document.createElement('div');
     
