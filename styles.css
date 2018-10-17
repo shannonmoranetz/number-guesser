@@ -311,6 +311,10 @@ body {
   width: 10px;
 }
 
+.box-error {
+  border: 2px solid #F74D9B;
+}
+
 .hide-error {
   visibility: hidden;
 }
