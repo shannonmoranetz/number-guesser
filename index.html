@@ -12,7 +12,23 @@
 
   <article class="number-guesser-container">
 
-    <header class="game-title-container"></header>
+    <header class="game-title-container">
+      <div class="header-container">
+      <h1 class="game-header-thick thick-skinny-inline">
+          NUMBER
+        </h1>
+        <h1 class="game-header-skinny thick-skinny-inline">
+          GUESSER
+        </h1>
+      </div>
+      <div class="ultimate-container">
+        <div class="line-left"></div>
+        <h2 class="ultimate-header">
+          ULTIMATE CHALLENGER EDITION
+        </h2>
+        <div class="line-right"></div>
+      </div>
+    </header>
 
     <div class="game-container">
 
@@ -38,7 +54,7 @@
              DUMMY
            </h5>
            <span class=input-box-header>
-            Min Range
+            Max Range
           </span>
           <input type="text" class="max-range">
           <span class="error-max hide-error">
@@ -55,9 +71,9 @@
         </span>
         <button class="update-button">UPDATE</button>
         <span class="error-max hide-error" id="dummy">
-            <img class="error-image" src="images/error-icon.svg">
-            <span class="error-message">DUMMY</span>
-          </span>
+          <img class="error-image" src="images/error-icon.svg">
+          <span class="error-message">DUMMY</span>
+        </span>
       </div>
     </section>
 
@@ -145,34 +161,34 @@
    <section class="latest-score-container">
     <div class="latest-player-one">
       <h5 class="input-title-header">
-          Latest Score
-        </h5>
-        <h6 class="challenger-one-name">
-          Challenger 1 Name
-        </h6>
-        <span class="current-guess">current guess</span>
-        <span class="guess-player-one"></span>
-        <span class="output-message-player-one"></span>
+        Latest Score
+      </h5>
+      <h6 class="challenger-one-name">
+        Challenger 1 Name
+      </h6>
+      <span class="current-guess">current guess</span>
+      <div class="guess-player-one"></div>
+      <span class="output-message-player-one"></span>
     </div>
+    <div class="latest-border"></div>
     <div class="latest-player-two">
       <h5 class="input-title-header" id="dummy">
-          DUMMY
-        </h5>
-        <h6 class="challenger-two-name">
-          Challenger 2 Name
-        </h6>
-        <span class="current-guess">current guess</span>
-        <span class="guess-player-two"></span>
-        <span class="output-message-player-two"></span>
+        DUMMY
+      </h5>
+      <h6 class="challenger-two-name">
+        Challenger 2 Name
+      </h6>
+      <span class="current-guess">current guess</span>
+      <div class="guess-player-two"></div>
+      <span class="output-message-player-two"></span>
     </div>
   </section>
 
 </div>
 
 <div class="game-output-container">
-  <div class="score-card-container"> 
-    <!-- event listener -->
-    
+  <div class="score-card-container">
+
   </div>
 
 
@@ -185,59 +201,3 @@
 </body>
 </html>
 
-
-
-
-
-  <!-- <div class="game-input-container">
-      <section class="game-input">
-        <h1 class="game-header-thick thick-skinny-inline">
-          NUMBER
-        </h1>
-        <h1 class="game-header-skinny thick-skinny-inline">
-          GUESSER
-        </h1>
-        <div class="range-titles">
-          <span class="min-title">Min Range</span>
-          <span class="max-title">Max Range</span>
-          <span class="hidden-title">Hidden</span>
-        </div>
-        <div class="range-modifiers">
-          <input type="text" class="min-range">
-          <input type="text" class="max-range">
-          <button class="update-button">UPDATE</button>
-        </div>
-        <div class="error-messages">
-          <div class="error-min hide-error">
-            <img src="images/error-icon.svg">
-            <span>Enter a min range</span>
-          </div>
-          <div class="error-max hide-error">
-            <img src="images/error-icon.svg">
-            <span>Enter a max range</span>
-          </div>
-          <div class="error-min"></div>
-        </div>
-        <p class="current-range">
-          The Current Range is 
-          <span class="current-min-range"></span>
-          to 
-          <span class="current-max-range"></span>.</p>
-          <span class="guess-title">Guess</span>
-          <div class="guess-form">
-            <input type="text" class="user-guess">
-            <button class="guess-button">SUBMIT GUESS</button>
-            <button class="clear-button">CLEAR</button>
-            <button class="reset-button">RESET</button>
-          </div>
-        </section>
-      </div> 
-      <div class="game-output-container">
-        <section class="game-output">
-          <h2 class="output-header">
-            You Guessed:
-          </h2>
-          <p class="guess-number"></p>
-          <p class="output-message"></p>        
-        </section>
-      </div> -->
