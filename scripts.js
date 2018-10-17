@@ -113,6 +113,28 @@ var playerOneGuesses = [1];
 var playerTwoGuesses = [1];
 
 
+var playerXTimer = Math.floor(Date.now() / 1000);
+// var playerTwoTimer = Math.floor(Date.now() / 1000);
+var playerXEndTime = 0;
+// var playerTwoEndTime = 0;
+
+
+
+function trackTimeOne(){
+
+  if (playerOneGuesses.length === 2) {
+    playerXTimer = Math.floor(Date.now() / 1000);
+  }
+}
+
+function trackTimeTwo(){
+
+  if (playerTwoGuesses.length === 2) {
+    playerXTimer = Math.floor(Date.now() / 1000);
+  }
+}
+
+
 
 
 function gameLoop() {
@@ -149,27 +171,24 @@ else if (parseInt(playerOneGuessInt) > randomNumber)
   outputMessagePlayerOne.innerHTML = "That's too high";
   playerOneGuesses.push(playerOneGuessInt);
   document.querySelector('.guess-player-one').innerHTML = `${playerOneGuessInt}`;
- 
+  trackTimeOne();
 }
 else if (parseInt(playerOneGuessInt) < randomNumber) 
 {  
   outputMessagePlayerOne.innerHTML = "That's too low";
   playerOneGuesses.push(playerOneGuessInt);
   document.querySelector('.guess-player-one').innerHTML = `${playerOneGuessInt}`;
- 
+  trackTimeOne();
 }
 else if (parseInt(playerOneGuessInt) === randomNumber) 
 {
+  trackTimeOne();
   outputMessagePlayerOne.innerHTML = "BOOM!";
   document.querySelector('.guess-player-one').innerHTML = `${playerOneGuessInt}`;
   var winner = playerOneName;
-    console.log(playerOneGuesses);
-  console.log(playerOneGuesses.length);
   var totalGuesses = playerOneGuesses.length;
-  console.log(totalGuesses);
-  gameWon(winner, totalGuesses);
-    // winDifficultyIncrease();
-    // gameWinBtnState()
+  playerXEndTime = Math.floor(Date.now() / 1000);
+  gameWon(winner, totalGuesses, playerXTimer, playerXEndTime);
   }
   else 
   { 
@@ -197,23 +216,25 @@ else if (parseInt(playerTwoGuessInt) > randomNumber)
   outputMessagePlayerTwo.innerHTML = "That's too high";
   playerTwoGuesses.push(playerTwoGuessInt);
   document.querySelector('.guess-player-two').innerHTML = `${playerTwoGuessInt}`;
+  trackTimeTwo()
 }
 else if (parseInt(playerTwoGuessInt) < randomNumber) 
 {  
   outputMessagePlayerTwo.innerHTML = "That's too low";
   playerTwoGuesses.push(playerTwoGuessInt);
   document.querySelector('.guess-player-two').innerHTML = `${playerTwoGuessInt}`;
+  trackTimeTwo()
 }
 else if (parseInt(playerTwoGuessInt) === randomNumber) 
 {
+  trackTimeTwo()
   outputMessagePlayerTwo.innerHTML = "BOOM!";
   document.querySelector('.guess-player-two').innerHTML = `${playerTwoGuessInt}`;
   var winner = playerTwoName;
-  console.log(playerTwoGuesses);
-  console.log(playerTwoGuesses.length);
+
   var totalGuesses = playerTwoGuesses.length;
-   console.log(totalGuesses);
-  gameWon(winner, totalGuesses);
+  playerXEndTime = Math.floor(Date.now() / 1000);
+  gameWon(winner, totalGuesses, playerXTimer, playerXEndTime);
     // winDifficultyIncrease();
     // gameWinBtnState()
   }
@@ -283,14 +304,26 @@ function updateNames()
   if (playerOneName === '') {
     var errorNameOne = document.querySelector('.error-name-one');
     errorNameOne.classList.remove('hide-error');
+    var errorBoxOne = document.querySelector('.player-one-name');
+    errorBoxOne.classList.add('box-error');
   } else {
    document.querySelector('.challenger-one-name').innerHTML = playerOneName;
+  var errorNameOne = document.querySelector('.error-name-one');
+   errorNameOne.classList.add('hide-error');
+   var errorBoxOne = document.querySelector('.player-one-name');
+    errorBoxOne.classList.remove('box-error');
  }
  if (playerTwoName === '') {
   var errorNameTwo = document.querySelector('.error-name-two');
   errorNameTwo.classList.remove('hide-error');
+  var errorBoxTwo = document.querySelector('.player-two-name');
+  errorBoxTwo.classList.add('box-error');
 } else {
  document.querySelector('.challenger-two-name').innerHTML = playerTwoName;
+var errorNameTwo = document.querySelector('.error-name-two');
+ errorNameTwo.classList.add('hide-error');
+ var errorBoxTwo = document.querySelector('.player-two-name');
+  errorBoxTwo.classList.remove('box-error');
 }
 if ((playerOneName === '') || (playerTwoName === '')) {
   return false;
@@ -299,13 +332,19 @@ if ((playerOneName === '') || (playerTwoName === '')) {
 }
 var scoreCardContainerDiv = document.querySelector('.score-card-container');
 
-function gameWon(winner, totalGuesses)
+function gameWon(winner, totalGuesses, playerXTimer, playerXEndTime)
 {
-  createDiv(winner, totalGuesses);
+  var diffM = Math.ceil((playerXEndTime - playerXTimer) / 60);
+  console.log(playerXEndTime);
+  console.log(playerXTimer);
+  console.log(diffM);
+  var diffS = (playerXEndTime - playerXTimer) % 60;
+  console.log(diffS);
+  createDiv(winner, totalGuesses, diffM, diffS, playerXEndTime);
   resetGame();
 }
 
-function createDiv(winner, totalGuesses) {
+function createDiv(winner, totalGuesses, diffM, diffS, playerXEndTime) {
     var newDiv = document.createElement('div');
 
     newDiv.className = 'score-card';
@@ -321,8 +360,8 @@ function createDiv(winner, totalGuesses) {
     </div> 
     <div class="score-card-stats">
       <div class="score-card-guesses">${totalGuesses} GUESSES</div>
-      <div class="score-card-timer">MINUTES</div>
-      <button class="delete-card">Delete</button>
+      <div class="score-card-timer">${diffM}:${diffS} MINUTES</div>
+      <button class="delete-card timestamp${playerXEndTime}">Delete</button>
     </div>
     `
     // var deleteBtn = document.querySelector('delete-card');
