@@ -2,117 +2,82 @@
   body {
     min-width: 320px;
   }
+
   .game-container {
     flex-direction: column;
   }
+
   .thick-skinny-inline { 
     font-size: 40px;
   }
+
   .line-right, .line-left {
     width: 50px;
   }
+
   .ultimate-header {
     font-size: 15px;
   }
+
   .number-guesser-container {
-    width:100%;
+    width: 100%;
   }
+
   .game-input-container { 
     width: 100%
   }
+
   .game-output-container {
     width: 100%
   }
-  /*TOP*/
+
   .range-modifiers-container {
     width: 320px;
     flex-direction: column;
   }
-  .min-range-container  {
 
-  }
-  .max-range-container {
-
-  }
-  .update-button-container {
-
-  }
-  /*MIDDLE*/
   .player-guesses-container {
     width: 320px;
     flex-direction: column;
   }
-  .current-range-container {
 
-  }
-  .name-one-container {
-
-  }
-
-  .player-one-guess-container {
-
-  }
-
-  .name-two-container {
-
-  }
-
-  .player-two-guess-container {
-
-  }
-
-  .guess-button-container {
-
-  }
-
-  .reset-button-container {
-
-  }
-
-  .clear-button-container {
-
-  }
-  /*BOTTOM*/
   .latest-score-container {
     width: 320px;
     flex-direction: column;
   }
 
-  .latest-player-one {
-
-  }
-
-  .latest-player-two {
-
-  }
   #dummy {
     display: none;
   }
+
   .min-range-container {
     padding: 10px 10px 2px;
   }
+
   .max-range-container {
-    /*flex: 5;*/
-    /*margin: 0px 10px;*/
     padding: 2px 10px 2px;
   }
 
   .update-button-container {
-    /*flex: 3.5;*/
     padding: 2px 10px 10px;
   }
+
   .name-one-container {
-    width:100%;
+    width: 100%;
   }
+
   .player-one-guess-container {
-    width:100%;
+    width: 100%;
   }
+
   .name-two-container {
-    width:100%;
+    width: 100%;
   }
+
   .player-two-guess-container {
-    width:100%;
+    width: 100%;
   }
+
   .guess-button-container {
     padding: 10px 10px 5px;
   }
@@ -120,109 +85,96 @@
   .reset-button-container {
     padding: 5px 10px 5px;
   }
+
   .clear-button-container {
     padding: 5px 10px 10px;
   }
+
   .current-range-container {
     padding: 10px 10px 3px;
   }
+
   .player-two-guess-container {
     padding: 3px 10px 10px;
   }
+
   .name-one-container, .name-two-container {
     padding: 3px 10px;
   }
+
   .player-one-guess-container {
     padding: 3px 10px 20px;
   }
+
   .latest-score-container {
     width: 320px;
   }
+
   .latest-border {
     height: 2px;
     width: 260px;
   }
 
-
   .score-card {
     width: 320px;
   }
-  /*TOP*/
+
   .score-card-vs {
    flex-direction: column;
  }
-
- .score-card-challenger {
-
- }
- .score-card-static-vs {
-
- }
- /*MIDDLE*/
- .score-card-winner {
-
- }
- .score-card-winner-name {
-
- }
- .score-card-static-winner {
-
- }
- /*BOTTOM*/
- .score-card-stats {
-
- }
-
-
-
 }
-
 
 @media screen and (min-width: 945px) {
   .thick-skinny-inline { 
     font-size: 54px;
   }
+
   .number-guesser-container {
     width: 944px;
   }
+
   .line-right, .line-left {
     width: 100px;
   }
+
   .ultimate-header {
     font-size: 18px;
-
   }
+
   .range-modifiers-container {
     width: 432px;
   }
+
   .player-guesses-container {
-    width:432px;
+    width: 432px;
   }
+
   .game-input-container {
     width: 472px;
   }
+
   .game-output-container {
     width: 472px;
   }
+
   .max-range-container, .min-range-container {
     flex: 5;
     padding: 10px;
   }
+
   .update-button-container {
     flex: 3.5;
     padding: 10px;
   }
-  .max-range-container  {
-    /*padding: 10px;*/
-  }
+
   .name-one-container {
-    width:66%;
+    width: 66%;
   }
   .player-one-guess-container {
     width: 34%;
   }
   .name-two-container {
-    width:66%;
+    width: 66%;
   }
   .player-two-guess-container {
     width: 34%;
@@ -230,55 +182,30 @@
   .guess-button-container, .reset-button-container, .clear-button-container {
     padding: 10px;
   }
+
   .current-range-container, .name-one-container, .player-one-guess-container, .name-two-container, .player-two-guess-container {
     padding: 10px;
   }
+
   .latest-score-container {
     width: 100%;
   }
+
   .latest-border {
 
-    height:130px;
+    height: 130px;
     width: 2px;
   }
-
-
 
   .score-card {
     width: 90%;
   }
-  /*TOP*/
-  .score-card-vs {
-
-  }
-
-  .score-card-challenger {
-
-  }
-  .score-card-static-vs {
-
-  }
-  /*MIDDLE*/
-  .score-card-winner {
-
-  }
-  .score-card-winner-name {
-
-  }
-  .score-card-static-winner {
-
-  }
-  /*BOTTOM*/
-  .score-card-stats {
-
-  }
 }
-
 
 .latest-border {
-
   border: 1px solid lightgrey;
 }
+
 * {
   margin: 0px;
   padding: 0px;
@@ -286,108 +213,106 @@
   font-family: 'Open Sans', sans-serif;
   box-sizing: border-box;
 }
+
 body {
   width: 100%;
-  /*min-width: 944px;*/
 }
+
 #dummy {
   visibility: hidden;
 }
+
 .number-guesser-container {
   margin: auto;
-  /*width: 100%;*/
 }
+
 .game-title-container {
   width: 100%;
   height: 150px;
   background-color: #404041;
-
-  /*margin:auto;*/
   display: flex;
   flex-direction: column;
   text-align: center;
 }
+
 .header-container {
   margin-top: 30px;
 }
+
 .ultimate-container {
   display: flex;
   align-items: center;
   margin: 0px auto ;
 }
+
 .ultimate-header {
   font-weight: 300;
-
   color: #FFFFFF;
-  /*display: inline;*/
 }
-.line-right, .line-left {
-  /*display: inline;*/
-  height: 2px;
 
+.line-right, .line-left {
+  height: 2px;
   border: 1px solid white;
   margin: 3px;
 }
 
 .thick-skinny-inline {
-  /*margin: auto;*/
   display: inline;
   color: #DD1972;
-
 }
+
 .game-header-thick {
   font-weight: 700;
   margin-right: -15px;
 }
+
 .game-header-skinny {
   font-weight: 300;
 }
+
 .game-container {
-  display:flex;
-  margin:auto;
+  display: flex;
+  margin: auto;
 }
 
-
-/*LEFT SIDE*/
 .game-input-container {
-  /*height: 960px;*/
-
-  padding:20px;
-  /*CHANGE WIDTH TO 320 FOR MOBILE*/
+  padding: 20px;
   background-color: #F7F7F7;
 }
-/*LEFT TOP*/
-.range-modifiers-container {
 
+.range-modifiers-container {
   margin: auto;
   display: flex;
   align-content: middle;
   background-color: #FFFFFF;
 }
-.min-range-container, .max-range-container, .update-button-container {
-  /*height: 100px;*/
-}
+
 .min-range-container  {
-  /*padding:10px;*/
-  /*  flex: 5;*/
   display: flex;
   flex-direction: column;
-  /*justify-content: space-between;*/
 }
+
 .input-title-header {
-  margin-bottom:5px;
+  margin-bottom: 5px;
   font-size: 16px;
 }
+
 .input-box-header {
   font-size: 14px;
 }
+
 .min-range, .max-range {
   font-size: 21px;
   width: 100%;
 }
+
 .error-image {
   height: 10px;
   width: 10px;
+}
+
+.box-error {
+  border: 2px solid #F74D9B;
 }
 
 .hide-error {
@@ -395,19 +320,16 @@ body {
 }
 
 .max-range-container {
-  /*padding: 10px;*/
-  /*flex: 5;*/
   display: flex;
   flex-direction: column;
-  /*justify-content: space-between;*/
 }
+
 .update-button-container {
-  /*padding:10px;*/
-  /*flex: 3.5;*/
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 .update-button {
   width: 100%;
   height: 30px ;
@@ -416,9 +338,8 @@ body {
   border-radius: 15px;
   font-size: 14px;
   font-weight: 700;
-  /*flex: 2;*/
 }
-/*LEFT MIDDLE*/
+
 .player-guesses-container {
   align-content: middle;
   margin: auto;
@@ -428,69 +349,72 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 .current-range-container {
-  width:100%;
-  /*padding: 10px;*/
+  width: 100%;
   height: 35px;
   display: flex;
   align-items: center;
 }
+
 .current-range {
-  font-size:14px;
+  font-size: 14px;
 }
+
 .current-min-range, .current-max-range {
-  font-size:14px;
+  font-size: 14px;
   font-weight: 700;
   text-decoration: underline;
 }
+
 .name-one-container {
-  /*width:66%;*/
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /*padding:10px;*/
 }
+
 .player-one-name, .player-two-name {
-  width:100%;
+  width: 100%;
   font-size: 21px;
 }
+
 .error-message {
-  font-size:12px;
+  font-size: 12px;
   color: #F74D9B;
 }
+
 .player-one-guess-container {
-  /*width:34%;*/
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /*padding: 10px;*/
 }
+
 .player-one-guess, .player-two-guess {
  width: 100%;
  font-size: 21px;
  color: #F74D9B;
 }
+
 .name-two-container {
-  /*width:66%;*/
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /*padding:10px;*/
 }
+
 .player-two-guess-container {
-  /*width:34%;*/
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /*padding: 10px;*/
 }
+
 .game-buttons-container {
   display: flex;
 }
+
 .guess-button-container {
-  /*padding:10px;*/
-  flex:5;
+  flex: 5;
 }
+
 .guess-button {
   width: 100%;
   height: 30px;
@@ -499,12 +423,12 @@ body {
   border-radius: 15px;
   font-size: 14px;
   font-weight: 700;
+}
 
-}
 .reset-button-container {
-  /*padding:10px;*/
-  flex:4;
+  flex: 4;
 }
+
 .reset-button {
   background-color: #6E6E6E;
   width: 100%;
@@ -513,12 +437,12 @@ body {
   color: #FFFFFF;
   font-size: 14px;
   font-weight: 700;
+}
 
-}
 .clear-button-container {
-  /*padding:10px;*/
-  flex:4;
+  flex: 4;
 }
+
 .clear-button {
   width: 100%;
   height: 30px;
@@ -527,94 +451,89 @@ body {
   color: #FFFFFF;
   font-size: 14px;
   font-weight: 700;
-
 }
-/*LEFT BOTTOM*/
+
 .latest-score-container {
   align-content: middle;
-  /*width: 100%;*/
-  /*height:300px;*/
   background-color: #FFFFFF;
-  margin:auto;
-  display:flex;
+  margin: auto;
+  display: flex;
   align-items: center;
 }
+
 .latest-player-one {
- padding:10px;
+ padding: 10px;
  flex: 1;
  display: flex;
  flex-direction: column;
  justify-content: space-between;
-
 }
+
 .guess-player-one, .guess-player-two {
   font-size: 64px;
   font-weight: 700;
   color: #F74D9B;
   text-align: center;
   min-height: 80px;
-
 }
+
 .output-message-player-one, .output-message-player-two {
   text-align: center;
   font-weight: 300;
 }
+
 .latest-player-two {
- padding:10px;
+ padding: 10px;
  flex: 1;
  display: flex;
  flex-direction: column;
  justify-content: space-between;
- position:relative;
+ position: relative;
 }
+
 .challenger-one-name, .challenger-two-name {
   font-size: 12px;
   font-weight: 700;
   text-align: center;
-  margin-bottom:3px;
+  margin-bottom: 3px;
 }
+
 .current-guess {
   font-size: 12px;
   font-weight: 300;
   text-align: center;
 }
 
-/*RIGHT SIDE*/
 .game-output-container {
-  /*height: 960px;*/
-
-  /*CHANGE WIDTH TO 320 FOR MOBILE*/
   background-color: lightgrey;
-  /*display: flex;*/
-  /*align-items: center;*/
-  /*flex: 1;*/
-  /*text-align: center;*/
 }
+
 .score-card-container {
-  width:100%;
-  margin:auto;
-  display:flex;
+  width: 100%;
+  margin: auto;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .score-card {
-  margin-top:20px;
-  /*width:100%;*/
+  margin-top: 20px;
   height: 160px;
   background-color: white;
   text-align: center;
 }
+
 .hide {
   background-color: #D0D2D3;
 }
+
 .score-card {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
 }
-/*TOP*/
+
 .score-card-vs {
   width: 100%;
   display: flex;
@@ -626,23 +545,26 @@ body {
   font-size: 15px;
   font-weight: 700;
 }
+
 .score-card-static-vs {
   font-weight: 300;
 }
-/*MIDDLE*/
+
 .score-card-winner {
   border: 1px solid black;
   width: 100%;
 }
+
 .score-card-winner-name {
   font-weight: 700;
   font-size: 24px;
 }
+
 .score-card-static-winner {
  font-weight: 300;
  font-size: 25px;
 }
-/*BOTTOM*/
+
 .score-card-stats {
   border: 1px solid black;
   width: 100%;
@@ -650,14 +572,13 @@ body {
   justify-content: space-around;
   align-items: center;
 }
+
 .score-card-guesses {
   font-size: 12px;
   font-weight: 300;
 }
+
 .score-card-timer {
   font-size: 12px;
   font-weight: 300;
 }
-
-
-
