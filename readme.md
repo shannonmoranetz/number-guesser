@@ -12,7 +12,7 @@ Javascript, HTML, and CSS were used to create the Number Guesser Doubles project
 
 ### Week One Photo
 
-[!] [Week One Photo] (images/screen1.png)
+![Week One Photo](images/screen1.png)
 
 ### Week Two Photo
 
@@ -20,12 +20,12 @@ Javascript, HTML, and CSS were used to create the Number Guesser Doubles project
 
 ### Original Comp
 
-[!] [Week One Photo] (images/screen3.jpg)
+![Week One Photo](images/screen3.jpg)
 
 ### Mobile View Photo
 
-[!] [Mobile View Photo] (images/screen4.png)
+![Mobile View Photo](images/screen4.png)
 
 ### Mobile View Comp
 
-[!] [Week One Photo] (images/screen5.jpg)
+![Week One Photo](images/screen5.jpg)
