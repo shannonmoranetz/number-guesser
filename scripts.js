@@ -336,13 +336,14 @@ function createDiv(winner, totalGuesses) {
     // var deleteButton = document.querySelector('.delete-card');
   }
 
-
 document.querySelector('.score-card-container').addEventListener('click', function(event) {
     var del = document.querySelector('.score-card');
     if (event.target.tagName.toLowerCase() === 'button') {
         del.remove();
     }
 });
+
+
 
  // console.log(event.target);
   // console.log(this);
