@@ -42,10 +42,18 @@ guessButton.addEventListener('click', function() {
   }
 });
 
-resetButton.addEventListener('click', function() {
+//NEW JS ADD
+function resetGame() {
   initializeGame();
   gameResetBtnState();
   generateRandomNumber();
+  playerOneGuesses = [1];
+  playerTwoGuesses = [1];
+}
+//END NEW
+
+resetButton.addEventListener('click', function() {
+  resetGame();
 });
 
 updateButton.addEventListener('click', function() {
@@ -138,14 +146,14 @@ else if (parseInt(playerOneGuessInt) < parseInt(minRange))
 }
 else if (parseInt(playerOneGuessInt) > randomNumber) 
 { 
-  outputMessagePlayerOne.innerHTML = "Sorry, that is too high";
+  outputMessagePlayerOne.innerHTML = "That's too high";
   playerOneGuesses.push(playerOneGuessInt);
   document.querySelector('.guess-player-one').innerHTML = `${playerOneGuessInt}`;
  
 }
 else if (parseInt(playerOneGuessInt) < randomNumber) 
 {  
-  outputMessagePlayerOne.innerHTML = "Sorry, that is too low";
+  outputMessagePlayerOne.innerHTML = "That's too low";
   playerOneGuesses.push(playerOneGuessInt);
   document.querySelector('.guess-player-one').innerHTML = `${playerOneGuessInt}`;
  
@@ -186,13 +194,13 @@ else if (parseInt(playerTwoGuessInt) < parseInt(minRange))
 }
 else if (parseInt(playerTwoGuessInt) > randomNumber) 
 { 
-  outputMessagePlayerTwo.innerHTML = "Sorry, that is too high";
+  outputMessagePlayerTwo.innerHTML = "That's too high";
   playerTwoGuesses.push(playerTwoGuessInt);
   document.querySelector('.guess-player-two').innerHTML = `${playerTwoGuessInt}`;
 }
 else if (parseInt(playerTwoGuessInt) < randomNumber) 
 {  
-  outputMessagePlayerTwo.innerHTML = "Sorry, that is too low";
+  outputMessagePlayerTwo.innerHTML = "That's too low";
   playerTwoGuesses.push(playerTwoGuessInt);
   document.querySelector('.guess-player-two').innerHTML = `${playerTwoGuessInt}`;
 }
@@ -294,31 +302,17 @@ var scoreCardContainerDiv = document.querySelector('.score-card-container');
 function gameWon(winner, totalGuesses)
 {
   createDiv(winner, totalGuesses);
-
-  // createVsDiv();
-  // createChOneVsDiv();
-  // createVsSeparatorDiv();
-  // createChTwoVsDiv();
-
-
-  // createWinnerDiv();
-  // createWinnerNameDiv();
-  // createStaticWinnerDiv();
-
-  // createStatsDiv();
+  resetGame();
 }
-// MAIN
 
 function createDiv(winner, totalGuesses) {
     var newDiv = document.createElement('div');
-    
-
 
     newDiv.className = 'score-card';
     newDiv.innerHTML = `
     <div class="score-card-vs">
       <div class="score-card-challenger">${playerOneName}</div>
-      <div class="score-card-static-vs">vs.</div>
+      <div class="score-card-static-vs">vs</div>
       <div class="score-card-challenger">${playerTwoName}</div>
     </div>   
     <div class="score-card-winner">
@@ -326,7 +320,7 @@ function createDiv(winner, totalGuesses) {
       <div class="score-card-static-winner">WINNER</div>
     </div> 
     <div class="score-card-stats">
-      <div class="score-card-guesses">${totalGuesses}</div>
+      <div class="score-card-guesses">${totalGuesses} GUESSES</div>
       <div class="score-card-timer">MINUTES</div>
       <button class="delete-card">Delete</button>
     </div>
@@ -336,12 +330,15 @@ function createDiv(winner, totalGuesses) {
     // var deleteButton = document.querySelector('.delete-card');
   }
 
+
 document.querySelector('.score-card-container').addEventListener('click', function(event) {
     var del = document.querySelector('.score-card');
     if (event.target.tagName.toLowerCase() === 'button') {
         del.remove();
     }
 });
+
+
 
 
 
