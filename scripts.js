@@ -138,14 +138,14 @@ else if (parseInt(playerOneGuessInt) < parseInt(minRange))
 }
 else if (parseInt(playerOneGuessInt) > randomNumber) 
 { 
-  outputMessagePlayerOne.innerHTML = "Sorry, that is too high";
+  outputMessagePlayerOne.innerHTML = "That's too high";
   playerOneGuesses.push(playerOneGuessInt);
   document.querySelector('.guess-player-one').innerHTML = `${playerOneGuessInt}`;
  
 }
 else if (parseInt(playerOneGuessInt) < randomNumber) 
 {  
-  outputMessagePlayerOne.innerHTML = "Sorry, that is too low";
+  outputMessagePlayerOne.innerHTML = "That's too low";
   playerOneGuesses.push(playerOneGuessInt);
   document.querySelector('.guess-player-one').innerHTML = `${playerOneGuessInt}`;
  
@@ -186,13 +186,13 @@ else if (parseInt(playerTwoGuessInt) < parseInt(minRange))
 }
 else if (parseInt(playerTwoGuessInt) > randomNumber) 
 { 
-  outputMessagePlayerTwo.innerHTML = "Sorry, that is too high";
+  outputMessagePlayerTwo.innerHTML = "That's too high";
   playerTwoGuesses.push(playerTwoGuessInt);
   document.querySelector('.guess-player-two').innerHTML = `${playerTwoGuessInt}`;
 }
 else if (parseInt(playerTwoGuessInt) < randomNumber) 
 {  
-  outputMessagePlayerTwo.innerHTML = "Sorry, that is too low";
+  outputMessagePlayerTwo.innerHTML = "That's too low";
   playerTwoGuesses.push(playerTwoGuessInt);
   document.querySelector('.guess-player-two').innerHTML = `${playerTwoGuessInt}`;
 }
@@ -318,7 +318,7 @@ function createDiv(winner, totalGuesses) {
     newDiv.innerHTML = `
     <div class="score-card-vs">
       <div class="score-card-challenger">${playerOneName}</div>
-      <div class="score-card-static-vs">vs.</div>
+      <div class="score-card-static-vs">vs</div>
       <div class="score-card-challenger">${playerTwoName}</div>
     </div>   
     <div class="score-card-winner">
@@ -326,7 +326,7 @@ function createDiv(winner, totalGuesses) {
       <div class="score-card-static-winner">WINNER</div>
     </div> 
     <div class="score-card-stats">
-      <div class="score-card-guesses">${totalGuesses}</div>
+      <div class="score-card-guesses">${totalGuesses} GUESSES</div>
       <div class="score-card-timer">MINUTES</div>
       <button class="delete-card">Delete</button>
     </div>
