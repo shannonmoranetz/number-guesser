@@ -16,7 +16,7 @@ Javascript, HTML, and CSS were used to create the Number Guesser Doubles project
 
 ### Week Two Photo
 
-<!-- [!] [Week One Photo] (images/screen2.png) -->
+![Week One Photo](images/screen2.png)
 
 ### Original Comp
 
