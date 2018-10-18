@@ -60,9 +60,10 @@ clearButton.addEventListener('click', function() {
 });
 
 scoreCardContainerDiv.addEventListener('click', function(event) {
-  var del = document.querySelector('.score-card');
+  var classFind = event.target.className.substr(9,10);
+  var del = document.querySelector('.div' + classFind);
   if (event.target.tagName.toLowerCase() === 'button') {
-    del.remove();
+      del.remove();
   }
 });
 
@@ -127,81 +128,77 @@ function gameLoop() {
  var playerTwoGuessInt = parseInt(playerTwoGuess.value);
  if (playerOneGuessInt === '') {
   outputMessagePlayerOne.innerHTML = "Please enter a guess!";
-}
-else if (isNaN(playerOneGuessInt)) {
-  outputMessagePlayerOne.innerHTML = "That is not a number!";  
-}
-else if (parseInt(playerOneGuessInt) > parseInt(maxRange)) { 
-  outputMessagePlayerOne.innerHTML = "That is outside the maximum range!";
-}
-else if (parseInt(playerOneGuessInt) < parseInt(minRange)) { 
-  outputMessagePlayerOne.innerHTML = "That is outside the minimum range!";  
-}
-else if (parseInt(playerOneGuessInt) > randomNumber) { 
-  outputMessagePlayerOne.innerHTML = "That's too high";
-  playerOneGuesses.push(playerOneGuessInt);
-  guessPlayerOne.innerHTML = `${playerOneGuessInt}`;
-  trackTimeOne();
-}
-else if (parseInt(playerOneGuessInt) < randomNumber) {  
-  outputMessagePlayerOne.innerHTML = "That's too low";
-  playerOneGuesses.push(playerOneGuessInt);
-  guessPlayerOne.innerHTML = `${playerOneGuessInt}`;
-  trackTimeOne();
-}
-else if (parseInt(playerOneGuessInt) === randomNumber) {
-  trackTimeOne();
-  outputMessagePlayerOne.innerHTML = "BOOM!";
-  guessPlayerOne.innerHTML = `${playerOneGuessInt}`;
-  var winner = playerOneName;
-  var totalGuesses = playerOneGuesses.length;
-  playerXEndTime = Math.floor(Date.now() / 1000);
-  gameWon(winner, totalGuesses, playerOneTimer, playerXEndTime);
-}
-else { 
-  outputMessagePlayerTwo.innerHTML = "UNEXPECTED ERROR";
-}
+  }
+  else if (isNaN(playerOneGuessInt)) {
+    outputMessagePlayerOne.innerHTML = "That is not a number!";  
+  }
+  else if (parseInt(playerOneGuessInt) > parseInt(maxRange)) { 
+    outputMessagePlayerOne.innerHTML = "That is outside the maximum range!";
+  }
+  else if (parseInt(playerOneGuessInt) < parseInt(minRange)) { 
+    outputMessagePlayerOne.innerHTML = "That is outside the minimum range!";  
+  }
+  else if (parseInt(playerOneGuessInt) > randomNumber) { 
+    outputMessagePlayerOne.innerHTML = "That's too high";
+    playerOneGuesses.push(playerOneGuessInt);
+    guessPlayerOne.innerHTML = `${playerOneGuessInt}`;
+    trackTimeOne();
+  }
+  else if (parseInt(playerOneGuessInt) < randomNumber) {  
+    outputMessagePlayerOne.innerHTML = "That's too low";
+    playerOneGuesses.push(playerOneGuessInt);
+    guessPlayerOne.innerHTML = `${playerOneGuessInt}`;
+    trackTimeOne();
+  }
+  else if (parseInt(playerOneGuessInt) === randomNumber) {
+    trackTimeOne();
+    outputMessagePlayerOne.innerHTML = "BOOM!";
+    guessPlayerOne.innerHTML = `${playerOneGuessInt}`;
+    var winner = playerOneName;
+    var totalGuesses = playerOneGuesses.length;
+    playerXEndTime = Math.floor(Date.now() / 1000);
+    gameWon(winner, totalGuesses, playerOneTimer, playerXEndTime);
+  }
+  else { 
+    outputMessagePlayerTwo.innerHTML = "UNEXPECTED ERROR";
+  }
 
-if (playerTwoGuessInt === '') {
-  outputMessagePlayerTwo.innerHTML = "Please enter a guess!";
-}
-else if (isNaN(playerTwoGuessInt)) {
-  outputMessagePlayerTwo.innerHTML = "That is not a number!";  
-}
-else if (parseInt(playerTwoGuessInt) > parseInt(maxRange)) { 
-  outputMessagePlayerTwo.innerHTML = "That is outside the maximum range!";
-}
-else if (parseInt(playerTwoGuessInt) < parseInt(minRange)) { 
-  outputMessagePlayerTwo.innerHTML = "That is outside the minimum range!";  
-}
-else if (parseInt(playerTwoGuessInt) > randomNumber) { 
-  outputMessagePlayerTwo.innerHTML = "That's too high";
-  playerTwoGuesses.push(playerTwoGuessInt);
-  guessPlayerTwo.innerHTML = `${playerTwoGuessInt}`;
-  trackTimeTwo();
-  console.log(playerTwoTimer);
-}
-else if (parseInt(playerTwoGuessInt) < randomNumber) {  
-  outputMessagePlayerTwo.innerHTML = "That's too low";
-  playerTwoGuesses.push(playerTwoGuessInt);
-  guessPlayerTwo.innerHTML = `${playerTwoGuessInt}`;
-  trackTimeTwo();
-  console.log(playerTwoTimer);
-}
-else if (parseInt(playerTwoGuessInt) === randomNumber) {
-  trackTimeTwo();
-  outputMessagePlayerTwo.innerHTML = "BOOM!";
-  guessPlayerTwo.innerHTML = `${playerTwoGuessInt}`;
-  var winner = playerTwoName;
-  var totalGuesses = playerTwoGuesses.length;
-  playerXEndTime = Math.floor(Date.now() / 1000);
-  console.log(playerTwoTimer);
-  console.log(playerXEndTime);
-  gameWon(winner, totalGuesses, playerTwoTimer, playerXEndTime);
-}
-else { 
-  outputMessagePlayerTwo.innerHTML = "UNEXPECTED ERROR";
-} 
+  if (playerTwoGuessInt === '') {
+    outputMessagePlayerTwo.innerHTML = "Please enter a guess!";
+  }
+  else if (isNaN(playerTwoGuessInt)) {
+    outputMessagePlayerTwo.innerHTML = "That is not a number!";  
+  }
+  else if (parseInt(playerTwoGuessInt) > parseInt(maxRange)) { 
+    outputMessagePlayerTwo.innerHTML = "That is outside the maximum range!";
+  }
+  else if (parseInt(playerTwoGuessInt) < parseInt(minRange)) { 
+    outputMessagePlayerTwo.innerHTML = "That is outside the minimum range!";  
+  }
+  else if (parseInt(playerTwoGuessInt) > randomNumber) { 
+    outputMessagePlayerTwo.innerHTML = "That's too high";
+    playerTwoGuesses.push(playerTwoGuessInt);
+    guessPlayerTwo.innerHTML = `${playerTwoGuessInt}`;
+    trackTimeTwo();
+  }
+  else if (parseInt(playerTwoGuessInt) < randomNumber) {  
+    outputMessagePlayerTwo.innerHTML = "That's too low";
+    playerTwoGuesses.push(playerTwoGuessInt);
+    guessPlayerTwo.innerHTML = `${playerTwoGuessInt}`;
+    trackTimeTwo();
+  }
+  else if (parseInt(playerTwoGuessInt) === randomNumber) {
+    trackTimeTwo();
+    outputMessagePlayerTwo.innerHTML = "BOOM!";
+    guessPlayerTwo.innerHTML = `${playerTwoGuessInt}`;
+    var winner = playerTwoName;
+    var totalGuesses = playerTwoGuesses.length;
+    playerXEndTime = Math.floor(Date.now() / 1000);
+    gameWon(winner, totalGuesses, playerTwoTimer, playerXEndTime);
+  }
+  else { 
+    outputMessagePlayerTwo.innerHTML = "UNEXPECTED ERROR";
+  } 
 };
 
 function resetGame() {
@@ -255,22 +252,22 @@ function updateNames() {
    errorNameOne.classList.add('hide-error');
    var errorBoxOne = document.querySelector('.player-one-name');
    errorBoxOne.classList.remove('box-error');
- }
- if (playerTwoName === '') {
-  var errorNameTwo = document.querySelector('.error-name-two');
-  errorNameTwo.classList.remove('hide-error');
-  var errorBoxTwo = document.querySelector('.player-two-name');
-  errorBoxTwo.classList.add('box-error');
-} else {
- challengerTwoName.innerHTML = playerTwoName;
- var errorNameTwo = document.querySelector('.error-name-two');
- errorNameTwo.classList.add('hide-error');
- var errorBoxTwo = document.querySelector('.player-two-name');
- errorBoxTwo.classList.remove('box-error');
-}
-if ((playerOneName === '') || (playerTwoName === '')) {
-  return false;
-}
+  }
+   if (playerTwoName === '') {
+    var errorNameTwo = document.querySelector('.error-name-two');
+    errorNameTwo.classList.remove('hide-error');
+    var errorBoxTwo = document.querySelector('.player-two-name');
+    errorBoxTwo.classList.add('box-error');
+  } else {
+   challengerTwoName.innerHTML = playerTwoName;
+   var errorNameTwo = document.querySelector('.error-name-two');
+   errorNameTwo.classList.add('hide-error');
+   var errorBoxTwo = document.querySelector('.player-two-name');
+   errorBoxTwo.classList.remove('box-error');
+  }
+  if ((playerOneName === '') || (playerTwoName === '')) {
+    return false;
+  }
 };
 
 function gameWon(winner, totalGuesses, playerXTimer, playerXEndTime) {
@@ -289,7 +286,7 @@ function gameWon(winner, totalGuesses, playerXTimer, playerXEndTime) {
 
 function createDiv(winner, totalGuesses, diffM, diffS, playerXEndTime) {
   var newDiv = document.createElement('div');
-  newDiv.className = 'score-card';
+  newDiv.className = 'div' + playerXEndTime + ' score-card';
   newDiv.innerHTML = `
   <div class="score-card-vs">
   <div class="score-card-challenger">${playerOneName}</div>
@@ -303,13 +300,13 @@ function createDiv(winner, totalGuesses, diffM, diffS, playerXEndTime) {
   <div class="score-card-stats">
   <div class="score-card-guesses">${totalGuesses} GUESSES</div>
   <div class="score-card-timer">${diffM}:${diffS} MINUTES</div>
-  <button class="delete-card timestamp${playerXEndTime}">Delete</button>
+  <button class="timestamp${playerXEndTime} delete-card">Delete</button>
   </div>
   `
   scoreCardContainerDiv.appendChild(newDiv);
 };
 
-function trackTimeOne(){
+function trackTimeOne() {
   if (playerOneGuesses.length === 2) {
     playerOneTimer = Math.floor(Date.now() / 1000);
   }
@@ -318,7 +315,7 @@ function trackTimeOne(){
   }
 };
 
-function trackTimeTwo(){
+function trackTimeTwo() {
   if (playerTwoGuesses.length === 2) {
     playerTwoTimer = Math.floor(Date.now() / 1000);
   }
