@@ -21,7 +21,8 @@ var playerTwoGuesses = [1];
 var playerOneName = document.querySelector('.player-one-name');
 var playerTwoName = document.querySelector('.player-two-name');
 var playerXEndTime = 0;
-var playerXTimer = Math.floor(Date.now() / 1000);
+var playerOneTimer = 0;
+var playerTwoTimer = 0;
 var resetButton = document.querySelector('.reset-button');
 var scoreCardContainerDiv = document.querySelector('.score-card-container');
 var updateButton = document.querySelector('.update-button');
@@ -75,7 +76,7 @@ function initializeGame() {
   document.querySelector('.max-range').value = 100;
   document.querySelector('.current-min-range').innerHTML = '1';
   document.querySelector('.current-max-range').innerHTML = '100';
-}
+};
 
 function generateRandomNumber() {
   minRange = document.querySelector('.min-range').value;
@@ -83,7 +84,7 @@ function generateRandomNumber() {
   var minRangeInt =parseInt(minRange);
   var maxRangeInt =parseInt(maxRange);
   randomNumber = Math.floor(Math.random() * (maxRangeInt - minRangeInt+1)) + minRangeInt;
-}
+};
 
 function checkRangeNumbers() {
   var errorMin = document.querySelector('.error-min');
@@ -155,7 +156,7 @@ else if (parseInt(playerOneGuessInt) === randomNumber) {
   var winner = playerOneName;
   var totalGuesses = playerOneGuesses.length;
   playerXEndTime = Math.floor(Date.now() / 1000);
-  gameWon(winner, totalGuesses, playerXTimer, playerXEndTime);
+  gameWon(winner, totalGuesses, playerOneTimer, playerXEndTime);
 }
 else { 
   outputMessagePlayerTwo.innerHTML = "UNEXPECTED ERROR";
@@ -177,23 +178,26 @@ else if (parseInt(playerTwoGuessInt) > randomNumber) {
   outputMessagePlayerTwo.innerHTML = "That's too high";
   playerTwoGuesses.push(playerTwoGuessInt);
   guessPlayerTwo.innerHTML = `${playerTwoGuessInt}`;
-  trackTimeTwo()
+  trackTimeTwo();
+  console.log(playerTwoTimer);
 }
 else if (parseInt(playerTwoGuessInt) < randomNumber) {  
   outputMessagePlayerTwo.innerHTML = "That's too low";
   playerTwoGuesses.push(playerTwoGuessInt);
   guessPlayerTwo.innerHTML = `${playerTwoGuessInt}`;
-  trackTimeTwo()
+  trackTimeTwo();
+  console.log(playerTwoTimer);
 }
 else if (parseInt(playerTwoGuessInt) === randomNumber) {
-  trackTimeTwo()
+  trackTimeTwo();
   outputMessagePlayerTwo.innerHTML = "BOOM!";
   guessPlayerTwo.innerHTML = `${playerTwoGuessInt}`;
   var winner = playerTwoName;
-
   var totalGuesses = playerTwoGuesses.length;
   playerXEndTime = Math.floor(Date.now() / 1000);
-  gameWon(winner, totalGuesses, playerXTimer, playerXEndTime);
+  console.log(playerTwoTimer);
+  console.log(playerXEndTime);
+  gameWon(winner, totalGuesses, playerTwoTimer, playerXEndTime);
 }
 else { 
   outputMessagePlayerTwo.innerHTML = "UNEXPECTED ERROR";
@@ -206,7 +210,7 @@ function resetGame() {
   generateRandomNumber();
   playerOneGuesses = [1];
   playerTwoGuesses = [1];
-}
+};
 
 function gameResetBtnState() {
   resetButton.disabled = true;
@@ -217,7 +221,7 @@ function gameResetBtnState() {
   clearButton.classList.add('hide');
   minRange.disabled = false;
   maxRange.disabled = false;
-}
+};
 
 function gameStartBtnState() {
   minRange.disabled = true;
@@ -228,14 +232,14 @@ function gameStartBtnState() {
   resetButton.classList.remove('hide');
   updateButton.disabled = true;
   updateButton.classList.add('hide');
-}
+};
 
 function gameWinBtnState() {
   updateButton.disabled = false;
   updateButton.classList.remove('hide');
   minRange.disabled = false;
   maxRange.disabled = false;
-}
+};
 
 function updateNames() {
   playerOneName = document.querySelector('.player-one-name').value;
@@ -267,15 +271,21 @@ function updateNames() {
 if ((playerOneName === '') || (playerTwoName === '')) {
   return false;
 }
-}
+};
 
-function gameWon(winner, totalGuesses, playerXTimer, playerXEndTime)
-{
-  var diffM = Math.ceil((playerXEndTime - playerXTimer) / 60);
+function gameWon(winner, totalGuesses, playerXTimer, playerXEndTime) {
+  var diffM = Math.floor((playerXEndTime - playerXTimer) / 60);
   var diffS = (playerXEndTime - playerXTimer) % 60;
+  if (playerXTimer === 0) {
+    diffS = 0;
+    diffM = 0;
+  }
+  if (diffS < 10) {
+    diffS = '0' + diffS;
+  }
   createDiv(winner, totalGuesses, diffM, diffS, playerXEndTime);
   resetGame();
-}
+};
 
 function createDiv(winner, totalGuesses, diffM, diffS, playerXEndTime) {
   var newDiv = document.createElement('div');
@@ -297,16 +307,22 @@ function createDiv(winner, totalGuesses, diffM, diffS, playerXEndTime) {
   </div>
   `
   scoreCardContainerDiv.appendChild(newDiv);
-}
+};
 
 function trackTimeOne(){
   if (playerOneGuesses.length === 2) {
-    playerXTimer = Math.floor(Date.now() / 1000);
+    playerOneTimer = Math.floor(Date.now() / 1000);
   }
-}
+  if (playerOneGuesses.length === 1) {
+    playerOneTimer = 0;
+  }
+};
 
 function trackTimeTwo(){
   if (playerTwoGuesses.length === 2) {
-    playerXTimer = Math.floor(Date.now() / 1000);
+    playerTwoTimer = Math.floor(Date.now() / 1000);
   }
-}
+  if (playerTwoGuesses.length === 1) {
+    playerTwoTimer = 0;
+  }
+};
