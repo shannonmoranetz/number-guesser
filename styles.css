@@ -6,7 +6,19 @@
   padding: 0px;
 }
 
-body {
+body,
+.game-title-container,
+.min-range,
+.max-range,
+.current-range-container,
+.player-one-name,
+.player-two-name,
+.player-one-guess,
+.player-two-guess,
+.score-card-container,
+.score-card-vs,
+.score-card-winner,
+.score-card-stats {
   width: 100%;
 }
 
@@ -20,7 +32,6 @@ body {
   flex-direction: column;
   height: 150px;
   text-align: center;
-  width: 100%;
 }
 
 .header-container {
@@ -35,11 +46,13 @@ body {
 
 .ultimate-header {
   color: #FFFFFF;
+}
+.ultimate-header {
   font-weight: 300;
 }
 
 .line-right, .line-left {
-  border: 1px solid white;
+  border: 1px solid #FFFFFF;
   height: 2px;
   margin: 3px;
 }
@@ -75,7 +88,8 @@ body {
   margin: auto;
 }
 
-.min-range-container  {
+.min-range-container,
+.max-range-contianer {
   display: flex;
   flex-direction: column;
 }
@@ -91,7 +105,6 @@ body {
 
 .min-range, .max-range {
   font-size: 21px;
-  width: 100%;
 }
 
 .error-image {
@@ -103,16 +116,8 @@ body {
   border: 2px solid #F74D9B;
 }
 
+#dummy,
 .hide-error {
-  visibility: hidden;
-}
-
-.max-range-container {
-  display: flex;
-  flex-direction: column;
-}
-
-#dummy {
   visibility: hidden;
 }
 
@@ -121,13 +126,17 @@ body {
 .player-one-guess-container,
 .name-two-container,
 .player-two-guess-container,
-.latest-player-one {
+.latest-player-one,
+.latest-player-two {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.update-button {
+.update-button,
+.guess-button,
+.reset-button,
+.clear-button  {
   background-color: #6E6E6E;
   border-radius: 15px;
   color: #FFFFFF;
@@ -151,7 +160,6 @@ body {
   align-items: center;
   display: flex;
   height: 35px;
-  width: 100%;
 }
 
 .current-range {
@@ -166,7 +174,6 @@ body {
 
 .player-one-name,
 .player-two-name {
-  width: 100%;
   font-size: 21px;
 }
 
@@ -179,7 +186,6 @@ body {
 .player-two-guess {
   color: #F74D9B;
   font-size: 21px;
-  width: 100%;
 }
 
 .game-buttons-container {
@@ -190,42 +196,9 @@ body {
   flex: 5;
 }
 
-.guess-button {
-  background-color: #6E6E6E;
-  border-radius: 15px;
-  color: #FFFFFF;
-  font-size: 14px;
-  font-weight: 700;
-  height: 30px;
-  width: 100%;
-}
-
-.reset-button-container {
-  flex: 4;
-}
-
-.reset-button {
-  background-color: #6E6E6E;
-  border-radius: 15px;
-  color: #FFFFFF;
-  height: 30px;
-  font-size: 14px;
-  font-weight: 700;
-  width: 100%;
-}
-
+.reset-button-container,
 .clear-button-container {
   flex: 4;
-}
-
-.clear-button {
-  background-color: #6E6E6E;
-  border-radius: 15px;
-  color: #FFFFFF;
-  height: 30px;
-  font-size: 14px;
-  font-weight: 700;
-  width: 100%;
 }
 
 .latest-score-container {
@@ -240,12 +213,15 @@ body {
   border: 1px solid lightgrey;
 }
 
-.latest-player-one {
+.latest-player-one,
+.latest-player-two {
  flex: 1;
  padding: 10px;
+ position: relative;
 }
 
-.guess-player-one, .guess-player-two {
+.guess-player-one,
+.guess-player-two {
   color: #F74D9B;
   font-size: 64px;
   font-weight: 700;
@@ -257,15 +233,6 @@ body {
 .output-message-player-two {
   text-align: center;
   font-weight: 300;
-}
-
-.latest-player-two {
- display: flex;
- flex: 1;
- flex-direction: column;
- justify-content: space-between;
- padding: 10px;
- position: relative;
 }
 
 .challenger-one-name,
@@ -292,11 +259,10 @@ body {
   flex-direction: column;
   justify-content: center;
   margin: auto;
-  width: 100%;
 }
 
 .score-card {
-  background-color: white;
+  background-color: #FFFFFF;
   height: 160px;
   margin-top: 20px;
   text-align: center;
@@ -315,7 +281,6 @@ body {
 .score-card-vs {
   display: flex;
   justify-content: space-around;
-  width: 100%;
 }
 
 .score-card-challenger {
@@ -325,10 +290,6 @@ body {
 
 .score-card-static-vs {
   font-weight: 300;
-}
-
-.score-card-winner {
-  width: 100%;
 }
 
 .score-card-winner-name {
@@ -345,7 +306,6 @@ body {
   align-items: center;
   display: flex;
   justify-content: space-around;
-  width: 100%;
 }
 
 .score-card-guesses,
@@ -458,7 +418,8 @@ body {
     width: 944px;
   }
 
-  .line-right, .line-left {
+  .line-right,
+  .line-left {
     width: 100px;
   }
 
