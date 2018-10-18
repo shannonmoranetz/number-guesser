@@ -20,9 +20,9 @@ var playerOneGuesses = [1];
 var playerTwoGuesses = [1];
 var playerOneName = document.querySelector('.player-one-name');
 var playerTwoName = document.querySelector('.player-two-name');
-var playerXEndTime = 0;
-var playerOneTimer = 0;
-var playerTwoTimer = 0;
+var playerXEndTime = Math.floor(Date.now() / 1000);
+var playerOneTimer = Math.floor(Date.now() / 1000);
+var playerTwoTimer = Math.floor(Date.now() / 1000);
 var resetButton = document.querySelector('.reset-button');
 var scoreCardContainerDiv = document.querySelector('.score-card-container');
 var updateButton = document.querySelector('.update-button');
@@ -72,7 +72,8 @@ function initializeGame() {
   playerTwoGuess.value = '';
   playerOneName.value = '';
   playerTwoName.value = '';
-  minRange.value = 1;
+  playerOneGuesses = [1];
+  playerTwoGuesses = [1];
   document.querySelector('.min-range').value = 1;
   document.querySelector('.max-range').value = 100;
   document.querySelector('.current-min-range').innerHTML = '1';
@@ -280,6 +281,7 @@ function gameWon(winner, totalGuesses, playerXTimer, playerXEndTime) {
   if (diffS < 10) {
     diffS = '0' + diffS;
   }
+  totalGuesses = totalGuesses * 2;
   createDiv(winner, totalGuesses, diffM, diffS, playerXEndTime);
   resetGame();
 };
