@@ -1,31 +1,26 @@
-# Number Guesser Project
-## Matthew Foxwell and Shannon Moranetz
+# Number Guesser
 
-Javascript, HTML, and CSS were used to create the Number Guesser Doubles project. In this app, a random number is selected and two players compete to try and guess the random number first. The game currently contains functionality for:
+## Number guessing game
 
-- Submitting guesses 
-- Checking guesses against a randomly created number value
-- Resetting the game 
-- Clearing input fields
-- Setting bounds for a minimum and maximum range
-- Displaying stats regarding to the previous game played
+* * *
 
-### Week One Photo
+### Simple multiplayer number guessing game.
 
-![Week One Photo](images/screen1.png)
+![Screenshot](https://i.imgur.com/LF4tmoo.png)
 
-### Week Two Photo
+### Features
 
-![Week One Photo](images/screen2.png)
+*   Custom range functionality
+*   Timed high-scores
+*   Previous game statistics
 
-### Original Comp
+### Tech Stack
 
-![Week One Photo](images/screen3.jpg)
+*   HTML
+*   CSS
+*   Javascript
 
-### Mobile View Photo
+### Contributors
 
-![Mobile View Photo](images/screen4.png)
-
-### Mobile View Comp
-
-![Week One Photo](images/screen5.jpg)
+* [Shannon Moranetz](https://github.com/shannonmoranetz)
+* [Matthew Foxwell](https://github.com/foxwellm)
